@@ -9,14 +9,14 @@ Import this:
 ```
 
 Have a config JSON file like this:
-```
+``` json
 {
     "api_key": "API_KEY_GOES_HERE"
 }
 ```
 
 Example:
-```
+``` go
   authOptions, _ := yelp.AuthOptionsFromJsonFile( "../config.json" )
   client := yelp.NewClient( authOptions )
   results, _ := client.Search( yelp.SearchOptions {
