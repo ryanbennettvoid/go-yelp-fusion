@@ -1,26 +1,27 @@
-
 package main
 
 import (
   "fmt"
+
   "github.com/ryanbennettvoid/go-yelp-fusion/yelp"
 )
 
 func main() {
-  authOptions, err := yelp.AuthOptionsFromJsonFile( "../config.json" )
+  authOptions, err := yelp.AuthOptionsFromJsonFile("../config.json")
   if err != nil {
-    panic( err )
+    panic(err)
   }
-  client := yelp.NewClient( authOptions )
-  results, err := client.Search( yelp.SearchOptions {
-    Term: "bar",
+  client := yelp.NewClient(authOptions)
+  client.Debug = true
+  results, err := client.Search(yelp.SearchOptions{
+    Term:     "bar",
     Location: "los angeles",
-    Limit: 20,
-  } )
+    Limit:    20,
+  })
   if err != nil {
-    panic( err )
+    panic(err)
   }
   for i, biz := range results.Businesses {
-    fmt.Printf( "%d.) %s\n", i+1, biz.Name )
+    fmt.Printf("%d.) %s\n", i+1, biz.Name)
   }
 }

@@ -1,9 +1,8 @@
-
 package yelp
 
 import (
-  "io/ioutil"
   "encoding/json"
+  "io/ioutil"
 )
 
 // AuthOptions contains authentication options for the Yelp API
@@ -13,13 +12,13 @@ type AuthOptions struct {
 
 // AuthOptionsFromJsonFile returns an AuthOptions object populated
 // from a JSON file
-func AuthOptionsFromJsonFile( configPath string ) ( AuthOptions, error ) {
+func AuthOptionsFromJsonFile(configPath string) (AuthOptions, error) {
   authOptions := AuthOptions{}
-  bytes, err := ioutil.ReadFile( configPath )
+  bytes, err := ioutil.ReadFile(configPath)
   if err != nil {
     return authOptions, err
   }
-  err = json.Unmarshal( bytes, &authOptions )
+  err = json.Unmarshal(bytes, &authOptions)
   if err != nil {
     return authOptions, err
   }

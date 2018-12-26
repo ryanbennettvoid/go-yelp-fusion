@@ -1,4 +1,3 @@
-
 package yelp
 
 // Category represents a category object from the Yelp API
