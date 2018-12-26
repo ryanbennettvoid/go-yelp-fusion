@@ -25,7 +25,7 @@ func (client *Client) Search(request SearchOptions) (SearchResponse, error) {
   method := "GET"
   endpoint := fmt.Sprintf(
     "/businesses/search?term=%s&location=%s&limit=%d",
-    request.Term,
+    strings.Join(strings.Split(request.Term, " "), "+"),
     strings.Join(strings.Split(request.Location, " "), "+"),
     request.Limit,
   )

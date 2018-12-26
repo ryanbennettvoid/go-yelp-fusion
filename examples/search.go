@@ -14,7 +14,7 @@ func main() {
   client := yelp.NewClient(authOptions)
   client.Debug = true
   results, err := client.Search(yelp.SearchOptions{
-    Term:     "bar",
+    Term:     "seven grand bar",
     Location: "los angeles",
     Limit:    20,
   })
